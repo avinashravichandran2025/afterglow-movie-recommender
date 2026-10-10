@@ -1,95 +1,161 @@
-# Afterglow ✨ — Machine Learning Movie Recommendation System
+# Afterglow ✨
+### Mood-Aware Movie Recommendation System
 
-**Afterglow** is an end-to-end Machine Learning movie recommendation system designed for portfolio and production environments. It blends live movie metadata from **The Movie Database (TMDB)** with historical user interaction patterns from **MovieLens** using Content-Based Filtering (TF-IDF + Cosine Similarity), Collaborative Filtering (SVD Matrix Factorization), and a custom Mood-Aware Ranking Engine.
+Afterglow is a machine learning movie recommendation application that helps users discover films based on their current mood and movie preferences.
 
----
+The application combines live movie metadata from The Movie Database (TMDB) with content-based recommendation techniques to deliver personalised movie suggestions through an interactive Streamlit interface.
 
-## 🌟 Key Features
+## ✨ Features
 
-- **Live TMDB Integration**: Real-time fetching of popular movie metadata, high-res posters, and genre details with automatic fallback HTTP engines for SSL resilience across environments.
-- **Content-Based Filtering**: TF-IDF vectorization over movie genres and synopsis descriptions paired with Cosine Similarity.
-- **Collaborative Filtering**: Singular Value Decomposition (SVD) matrix factorization on historical rating interaction matrices.
-- **Mood-Aware Ranking Engine**: Dynamic mood profiles (*Uplifting*, *Dark/Gritty*, *Mind-Bending Sci-Fi*, *Relaxed*, *Romantic*) that re-weight candidate scores dynamically.
-- **Watched History Controls**: Instant exclusion of already watched movies from recommendations.
-- **Full Test Suite & Metrics**: Automated unit testing (`pytest`) verifying evaluation metrics (`Precision@K`, `Recall@K`, `NDCG@K`), preprocessing pipelines, and model outputs.
-- **Interactive Streamlit App**: Modern dark-mode UI with glassmorphism aesthetics.
+- **Live Movie Data:** Fetch popular movies, posters, ratings, descriptions, and metadata from TMDB.
+- **Content-Based Filtering:** Use TF-IDF vectorisation and cosine similarity to identify movies with similar genres and descriptions.
+- **Mood-Aware Recommendations:** Discover movies based on moods such as Uplifting, Dark, Mind-Bending, Relaxed, and Romantic.
+- **Hybrid Recommendation Engine:** Combine mood alignment, content relevance, and movie quality signals.
+- **Movie Similarity Search:** Select a movie and discover similar films.
+- **Watched History:** Mark movies as watched and exclude them from subsequent recommendations during the current session.
+- **Interactive Interface:** Explore recommendations through a dark-themed Streamlit web application.
+- **Testing:** Automated tests for supported data-processing, recommendation, and evaluation components.
 
----
+## 🛠️ Technology Stack
 
-## 📁 Repository Structure
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Web Application | Streamlit |
+| Data Processing | Pandas, NumPy |
+| Machine Learning | Scikit-learn |
+| Recommendation Algorithm | TF-IDF, Cosine Similarity, Mood-Based Ranking |
+| Movie Data | TMDB API |
+| Testing | Pytest |
+| Version Control | Git, GitHub |
 
-```
-afterglow/
-├── data/
-│   ├── raw/          # MovieLens raw datasets (git-ignored)
-│   └── processed/    # Cleaned datasets and cached metadata
-├── src/afterglow/
-│   ├── __init__.py
-│   ├── config.py             # Credential manager & environment paths
-│   ├── data_loader.py        # TMDB API client & MovieLens loader
-│   ├── preprocessing.py      # Genre parsing, title/year extraction & cleaning
-│   ├── content_model.py      # TF-IDF + Cosine Similarity Recommender
-│   ├── collaborative_model.py # SVD Matrix Factorization Recommender
-│   ├── mood_recommender.py   # Hybrid mood weighting & watched filtering
-│   ├── evaluation.py         # Precision@K, Recall@K & NDCG@K metrics
-│   └── experiments.py        # Benchmark experiment runner
+## 📸 Application Preview
+
+<!-- Add a screenshot of your running application here. -->
+<!-- Save the screenshot in the repository as assets/afterglow-preview.png. -->
+
+![Afterglow application preview](assets/afterglow-preview.png)
+
+## 📁 Project Structure
+
+```text
+afterglow-movie-recommender/
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+├── .env.example
+├── src/
+│   └── afterglow/
+│       ├── __init__.py
+│       ├── config.py
+│       ├── data_loader.py
+│       ├── preprocessing.py
+│       ├── content_model.py
+│       ├── collaborative_model.py
+│       ├── mood_recommender.py
+│       ├── evaluation.py
+│       └── experiments.py
 ├── tests/
-│   ├── test_config.py
-│   ├── test_data_loader.py
-│   ├── test_preprocessing.py
-│   ├── test_content_model.py
-│   ├── test_collaborative_model.py
-│   ├── test_recommendations.py
-│   └── test_evaluation.py
-├── app.py              # Streamlit Web Application UI
-├── requirements.txt    # Project dependencies
-├── .env                # API Keys (TMDB_READ_TOKEN / TMDB_API_KEY)
-└── README.md
+└── data/
 ```
 
----
+*Note: The structure above describes the intended project organisation. Keep only files and directories that actually exist in your repository.*
 
-## 🚀 Quickstart Guide
+## 🚀 Getting Started
 
-### 1. Environment Setup
+### Prerequisites
+
+- Python 3.10 or later, compatible with the dependencies in `requirements.txt`
+- A TMDB API credential
+- Git
+
+### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/your-username/afterglow.git
-cd afterglow
+git clone https://github.com/avinashravichandran2025/afterglow-movie-recommender.git
+cd afterglow-movie-recommender
+```
 
-# Create and activate Python virtual environment
+### 2. Create a Virtual Environment
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
-# Install dependencies
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configure TMDB API Key
-Add your TMDB API Read Token or API Key in `.env`:
+### 4. Configure TMDB Credentials
+
+Create a `.env` file in the project root directory:
+
 ```env
-TMDB_READ_TOKEN=your_bearer_token_here
+TMDB_READ_TOKEN=your_tmdb_read_access_token
 ```
 
-### 3. Run Unit Tests
+Use the environment variable names expected by `src/afterglow/config.py`.
+
+**Security:** Never commit your `.env` file, API tokens, or other credentials to GitHub.
+
+### 5. Run the Application
+
 ```bash
-PYTHONPATH=src pytest tests/
+PYTHONPATH=src python -m streamlit run app.py
 ```
 
-### 4. Launch the Interactive App
+Open the local URL displayed in your terminal to use Afterglow.
+
+## 🧠 How It Works
+
+### Content-Based Filtering
+
+The content recommendation model transforms movie genres and descriptions into TF-IDF feature vectors. Cosine similarity measures how closely two movies match, allowing users to discover films with similar content.
+
+### Mood-Aware Ranking
+
+The mood recommendation engine adjusts movie rankings according to the selected mood. Genre alignment and movie quality signals help prioritise relevant recommendations.
+
+### Hybrid Recommendations
+
+The hybrid approach combines mood alignment with content relevance and quality signals to provide another way to discover films.
+
+### Watched History
+
+Users can mark recommendations as watched. These movies are excluded from future recommendations during the current application session.
+
+## 🧪 Running Tests
+
+Run the test suite from the project root:
+
 ```bash
-streamlit run app.py
+PYTHONPATH=src python -m pytest tests/ -v
 ```
 
----
+Check that the tests pass before reporting the results in this README.
 
-## 📊 Evaluation Metrics
+## 🔐 Environment Variables
 
-The system measures recommendation accuracy using top-K ranking metrics:
-- **Precision@K**: Fraction of top-$K$ recommended movies that the user rated positively ($\ge 3.5$).
-- **Recall@K**: Fraction of user's total liked movies captured within the top-$K$ recommendations.
-- **NDCG@K**: Normalized Discounted Cumulative Gain accounting for position-dependent ranking quality.
+Store API credentials locally in `.env`.
 
----
+Example `.env.example`:
+
+```env
+TMDB_READ_TOKEN=replace_with_your_tmdb_read_access_token
+```
+
+The example file must contain placeholders only, never real credentials.
+
+## 👨‍💻 Author
+
+**Avinash Ravichandran**
+
+GitHub: [@avinashravichandran2025](https://github.com/avinashravichandran2025)
 
 ## 📜 License
-MIT License © 2026 Afterglow Team
+
+Add a license file if you intend to distribute this project under an open-source license.
