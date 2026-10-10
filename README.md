@@ -32,9 +32,6 @@ The application combines live movie metadata from The Movie Database (TMDB) with
 
 ## 📸 Application Preview
 
-<!-- Add a screenshot of your running application here. -->
-<!-- Save the screenshot in the repository as assets/afterglow-preview.png. -->
-
 ![Afterglow application preview](assets/afterglow-home.png)
 
 ## 📁 Project Structure
