@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Data directory contents (excluding placeholder structure)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Environment variables & secrets
+.env
+
+# Testing & Notebooks
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS specific
+.DS_Store
+Thumbs.db
