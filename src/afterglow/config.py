@@ -3,11 +3,13 @@ import os
 from pathlib import Path
 from typing import Optional
 
+import streamlit as st
 from dotenv import load_dotenv
 
-# Load .env from the project root.
-# config.py is located in src/afterglow/.
+# Project root: config.py is inside src/afterglow/
 BASE_DIR = Path(__file__).resolve().parents[2]
+
+# Load local environment variables for development
 load_dotenv(BASE_DIR / ".env")
 
 # Base directory paths
@@ -19,9 +21,24 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
+
+def get_secret_or_env(name: str) -> str:
+    """Read a credential from Streamlit Secrets or environment variables."""
+    try:
+        value = st.secrets.get(name, "")
+    except (FileNotFoundError, RuntimeError):
+        # Streamlit Secrets may not exist during local development.
+        value = ""
+
+    if value:
+        return str(value).strip()
+
+    return os.getenv(name, "").strip()
+
+
 # TMDB API configuration
-TMDB_API_KEY = os.getenv("TMDB_API_KEY", "").strip()
-TMDB_READ_TOKEN = os.getenv("TMDB_READ_TOKEN", "").strip()
+TMDB_API_KEY = get_secret_or_env("TMDB_API_KEY")
+TMDB_READ_TOKEN = get_secret_or_env("TMDB_READ_TOKEN")
 
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
 TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
@@ -46,7 +63,7 @@ def get_tmdb_params(
     """Return query parameters, adding the API key when needed."""
     params = dict(extra_params or {})
 
-    # Prefer the Read Access Token when it is configured.
+    # Prefer the Read Access Token when configured.
     if not TMDB_READ_TOKEN and TMDB_API_KEY:
         params["api_key"] = TMDB_API_KEY
 
