@@ -1,63 +1,71 @@
 # Afterglow ✨
 
-### Mood-Aware Movie Recommendation System
+## Mood-Aware Movie Recommendation System
 
 Afterglow is a machine learning movie recommendation application that helps users discover films based on their current mood and movie preferences.
 
-The application combines live movie metadata from The Movie Database (TMDB) with content-based recommendation techniques to deliver personalised movie suggestions through an interactive Streamlit interface.
+The application combines movie metadata from The Movie Database (TMDB) with content-based recommendation techniques to deliver personalised movie suggestions through an interactive Streamlit interface.
+
+🚀 **Live Demo:** [Try Afterglow](https://afterglow-movie-recommender-eu5xfjndpjiqfr8uefd5rx.streamlit.app/)
+
+💻 **GitHub Repository:** [View Source Code](https://github.com/avinashravichandran2025/afterglow-movie-recommender)
+
+---
 
 ## ✨ Features
 
 - **Live Movie Data:** Fetch popular movies, posters, ratings, descriptions, and metadata from TMDB.
-- **Content-Based Filtering:** Use TF-IDF vectorisation and cosine similarity to identify movies with similar genres and descriptions.
+- **Content-Based Filtering:** Identify movies with similar genres and descriptions using content similarity techniques.
 - **Mood-Aware Recommendations:** Discover movies based on moods such as Uplifting, Dark, Mind-Bending, Relaxed, and Romantic.
-- **Hybrid Recommendation Engine:** Combine mood alignment, content relevance, and movie quality signals.
-- **Movie Similarity Search:** Select a movie and discover similar films.
-- **Watched History:** Mark movies as watched and exclude them from subsequent recommendations during the current session.
+- **Recommendation Ranking:** Combine mood alignment, content relevance, and movie quality signals.
+- **Movie Similarity Search:** Discover similar films using the available recommendation features.
+- **Watch History:** Track watched movies during the current Streamlit session.
 - **Interactive Interface:** Explore recommendations through a dark-themed Streamlit web application.
-- **Testing:** Automated tests for supported data-processing, recommendation, and evaluation components.
+- **Testing:** Run automated tests for supported components.
 
 ## 🛠️ Technology Stack
 
-| Category                 | Technologies                                  |
-| ------------------------ | --------------------------------------------- |
-| Programming Language     | Python                                        |
-| Web Application          | Streamlit                                     |
-| Data Processing          | Pandas, NumPy                                 |
-| Machine Learning         | Scikit-learn                                  |
-| Recommendation Algorithm | TF-IDF, Cosine Similarity, Mood-Based Ranking |
-| Movie Data               | TMDB API                                      |
-| Testing                  | Pytest                                        |
-| Version Control          | Git, GitHub                                   |
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Web Application | Streamlit |
+| Data Processing | Pandas, NumPy |
+| Machine Learning | Scikit-learn |
+| Recommendation Techniques | Content Similarity, Mood-Based Ranking |
+| Movie Data | TMDB API |
+| Testing | Pytest |
+| Version Control | Git, GitHub |
 
 ## 📸 Application Preview
 
 <p align="center">
-  <img src="https://github.com/avinashravichandran2025/afterglow-movie-recommender/blob/main/assets/afterglow-home.png?raw=true" alt="Afterglow Application Preview" width="800">
+  <a href="https://afterglow-movie-recommender-eu5xfjndpjiqfr8uefd5rx.streamlit.app/">
+    <img src="https://github.com/avinashravichandran2025/afterglow-movie-recommender/blob/main/assets/afterglow-home.png?raw=true" alt="Afterglow Movie Recommendation Application" width="800">
+  </a>
 </p>
 
 ## 📁 Project Structure
 
 ```text
 afterglow-movie-recommender/
-├── app.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-├── .env.example
+├── assets/
 ├── src/
 │   └── afterglow/
 │       ├── __init__.py
-│       ├── config.py
-│       ├── data_loader.py
-│       ├── preprocessing.py
-│       ├── content_model.py
 │       ├── collaborative_model.py
-│       ├── mood_recommender.py
+│       ├── config.py
+│       ├── content_model.py
+│       ├── data_loader.py
 │       ├── evaluation.py
-│       └── experiments.py
+│       ├── experiments.py
+│       ├── mood_recommender.py
+│       └── preprocessing.py
 ├── tests/
-└── data/
+├── app.py
+├── requirements.txt
+├── pyproject.toml
+├── README.md
+└── LICENSE
 ```
 
 _Note: The structure above describes the intended project organisation. Keep only files and directories that actually exist in your repository._
@@ -158,4 +166,6 @@ GitHub: [@avinashravichandran2025](https://github.com/avinashravichandran2025)
 
 ## 📜 License
 
-Add a license file if you intend to distribute this project under an open-source license.
+📜 License
+
+This project is available for viewing and educational purposes. No open-source license has been added yet. All rights are reserved by the author unless otherwise stated.
