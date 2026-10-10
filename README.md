@@ -32,9 +32,7 @@ The application combines live movie metadata from The Movie Database (TMDB) with
 
 ## 📸 Application Preview
 
-<p align="center">
-  <img src="assets/afterglow-home.png" alt="Afterglow movie recommendation app" width="100%">
-</p>
+![Afterglow App Screenshot](https://github.com/avinashravichandran2025/afterglow-movie-recommender/blob/main/assets/afterglow-home.png?raw=true)
 
 ## 📁 Project Structure
 
