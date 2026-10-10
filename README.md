@@ -1,4 +1,5 @@
 # Afterglow ✨
+
 ### Mood-Aware Movie Recommendation System
 
 Afterglow is a machine learning movie recommendation application that helps users discover films based on their current mood and movie preferences.
@@ -18,23 +19,23 @@ The application combines live movie metadata from The Movie Database (TMDB) with
 
 ## 🛠️ Technology Stack
 
-| Category | Technologies |
-|---|---|
-| Programming Language | Python |
-| Web Application | Streamlit |
-| Data Processing | Pandas, NumPy |
-| Machine Learning | Scikit-learn |
+| Category                 | Technologies                                  |
+| ------------------------ | --------------------------------------------- |
+| Programming Language     | Python                                        |
+| Web Application          | Streamlit                                     |
+| Data Processing          | Pandas, NumPy                                 |
+| Machine Learning         | Scikit-learn                                  |
 | Recommendation Algorithm | TF-IDF, Cosine Similarity, Mood-Based Ranking |
-| Movie Data | TMDB API |
-| Testing | Pytest |
-| Version Control | Git, GitHub |
+| Movie Data               | TMDB API                                      |
+| Testing                  | Pytest                                        |
+| Version Control          | Git, GitHub                                   |
 
 ## 📸 Application Preview
 
 <!-- Add a screenshot of your running application here. -->
 <!-- Save the screenshot in the repository as assets/afterglow-preview.png. -->
 
-![Afterglow application preview](assets/afterglow-preview.png)
+![Afterglow application preview](assets/afterglow-home.png)
 
 ## 📁 Project Structure
 
@@ -60,7 +61,7 @@ afterglow-movie-recommender/
 └── data/
 ```
 
-*Note: The structure above describes the intended project organisation. Keep only files and directories that actually exist in your repository.*
+_Note: The structure above describes the intended project organisation. Keep only files and directories that actually exist in your repository._
 
 ## 🚀 Getting Started
 
